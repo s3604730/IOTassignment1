@@ -2,6 +2,7 @@ import json
 from sense_hat import SenseHat
 import logging
 from virtual_sense_hat import VirtualSenseHat
+from classTemperature import ClassTemperature
 
 #import requests
 
@@ -27,6 +28,8 @@ def getDataSenseHat():
 
 
 getDataSenseHat()
+yes = ClassTemperature()
+print(yes.returnCurrentTemperature())
 
 """
 #Initilising Sensehat
