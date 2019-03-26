@@ -1,6 +1,11 @@
 import json
 from sense_hat import SenseHat
+import logging
+from classTemperature import ClassTemperature
+
 #import requests
+
+#initialise database here
 
 #This may not stay in here.
 
@@ -16,6 +21,20 @@ with open("config.json", "r") as file1:
 print(data)
 
 
+#move this class for getting Sense Hat into main?
+class MonitorAndNotify:
+    @staticmethod
+    def getSenseHat(logError = True):
+        try:
+            return SenseHat()
+        except Exception as e:
+            if(logError):
+                logging.error("Error")
+            return MonitorAndNotify()
+
+sensorTemperature = ClassTemperature()
+
+"""
 #Initilising Sensehat
 sense = SenseHat()
 sense.clear()
@@ -23,5 +42,10 @@ sense.clear()
 #getting temperature
 temp = sense.get_temperature()
 print(temp)
+
+#getting humid
 humidity = sense.get_humidity()
 print(humidity)
+"""
+print (sensorTemperature.returnCurrentTemperature())
+        
