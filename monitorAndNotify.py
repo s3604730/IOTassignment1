@@ -1,7 +1,7 @@
 import json
 from sense_hat import SenseHat
 import logging
-from classTemperature import ClassTemperature
+from virtual_sense_hat import VirtualSenseHat
 
 #import requests
 
@@ -20,19 +20,13 @@ with open("config.json", "r") as file1:
 
 print(data)
 
+def getDataSenseHat():
+    sense = VirtualSenseHat.getSenseHat()
+    temperature = sense.get_temperature()
+    print(temperature)
 
-#move this class for getting Sense Hat into main?
-class MonitorAndNotify:
-    @staticmethod
-    def getSenseHat(logError = True):
-        try:
-            return SenseHat()
-        except Exception as e:
-            if(logError):
-                logging.error("Error")
-            return MonitorAndNotify()
 
-sensorTemperature = ClassTemperature()
+getDataSenseHat()
 
 """
 #Initilising Sensehat
@@ -47,5 +41,5 @@ print(temp)
 humidity = sense.get_humidity()
 print(humidity)
 """
-print (sensorTemperature.returnCurrentTemperature())
+
         
