@@ -4,7 +4,10 @@ import logging
 from classList.classTemperature import ClassTemperature 
 from classList.classHumidity import ClassHumidity
 
+# the objects with parent abstract class
 from classList.classTemperature2 import ClassTemperature2
+from classList.classHumidity2 import ClassHumidity2
+
 
 #import requests
 
@@ -32,6 +35,14 @@ print(sensorTemperature.returnCurrentTemperature())
 print(sensorHumidity.returnCurrentHumidity())
 print("fdsaf")
 
+
+#get sensor object through abstract class and print value
+#temperature
 sensorTemperatureObject = ClassTemperature2()
 sensorTemperatureValue = sensorTemperatureObject.returnValue()
 print(sensorTemperatureValue)
+
+#get sensor object humidity
+sensorHumidityObject = ClassHumidity2()
+sensorHumidityValue = sensorHumidityObject.returnValue()
+print(sensorHumidityValue)
