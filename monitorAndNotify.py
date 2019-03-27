@@ -26,14 +26,7 @@ with open("config.json", "r") as file1:
 
 print(data)
 
-#Initialise object with getting Temperature and humidity
-# with abstract class, we may not need to call it twice
 
-sensorTemperature = ClassTemperature()
-sensorHumidity = ClassHumidity() 
-print(sensorTemperature.returnCurrentTemperature())
-print(sensorHumidity.returnCurrentHumidity())
-print("fdsaf")
 
 
 #get sensor object through abstract class and print value
