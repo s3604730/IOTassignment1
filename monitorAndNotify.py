@@ -4,6 +4,8 @@ import logging
 from classList.classTemperature import ClassTemperature 
 from classList.classHumidity import ClassHumidity
 
+from classList.classTemperature2 import ClassTemperature2
+
 #import requests
 
 #initialise database here
@@ -30,3 +32,6 @@ print(sensorTemperature.returnCurrentTemperature())
 print(sensorHumidity.returnCurrentHumidity())
 print("fdsaf")
 
+sensorTemperatureObject = ClassTemperature2()
+sensorTemperatureValue = sensorTemperatureObject.returnValue()
+print(sensorTemperatureValue)
