@@ -1,8 +1,8 @@
 import json
-from sense_hat import SenseHat
 import logging
-from virtual_sense_hat import VirtualSenseHat
-from classTemperature import ClassTemperature
+#from virtual_sense_hat import VirtualSenseHat
+from classList.classTemperature import ClassTemperature 
+from classList.classHumidity import ClassHumidity
 
 #import requests
 
@@ -21,28 +21,12 @@ with open("config.json", "r") as file1:
 
 print(data)
 
-def getDataSenseHat():
-    sense = VirtualSenseHat.getSenseHat()
-    temperature = sense.get_temperature()
-    print(temperature)
+#Initialise object with getting Temperature and humidity
+# with abstract class, we may not need to call it twice
 
+sensorTemperature = ClassTemperature()
+sensorHumidity = ClassHumidity() 
+print(sensorTemperature.returnCurrentTemperature())
+print(sensorHumidity.returnCurrentHumidity())
+print("fdsaf")
 
-getDataSenseHat()
-yes = ClassTemperature()
-print(yes.returnCurrentTemperature())
-
-"""
-#Initilising Sensehat
-sense = SenseHat()
-sense.clear()
-
-#getting temperature
-temp = sense.get_temperature()
-print(temp)
-
-#getting humid
-humidity = sense.get_humidity()
-print(humidity)
-"""
-
-        
