@@ -1,4 +1,9 @@
-import datetime
+from datetime import datetime, timedelta
 
-currentDT = datetime.datetime.now()
-print (str(currentDT))
+print(result)
+
+def returnTime():
+    currentUtcTime = datetime.utcnow()
+    result = currentUtcTime + timedelta(hours=11)
+    
+    return result
