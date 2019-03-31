@@ -7,10 +7,11 @@ from classList.classHumidity import ClassHumidity
 # the objects with parent abstract class
 from classList.classTemperature2 import ClassTemperature2
 from classList.classHumidity2 import ClassHumidity2
-
+from classList.classDatabase import Database 
 
 #import requests
-
+db = Database()
+print(db)
 #initialise database here
 
 #This may not stay in here.
