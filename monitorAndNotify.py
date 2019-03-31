@@ -7,7 +7,10 @@ from classList.classHumidity import ClassHumidity
 # the objects with parent abstract class
 from classList.classTemperature2 import ClassTemperature2
 from classList.classHumidity2 import ClassHumidity2
+from classList.classDatabase import Database
 
+db = Database()
+print(db)
 
 #import requests
 
@@ -39,3 +42,5 @@ print(sensorTemperatureValue)
 sensorHumidityObject = ClassHumidity2()
 sensorHumidityValue = sensorHumidityObject.returnValue()
 print(sensorHumidityValue)
+
+

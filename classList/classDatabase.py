@@ -1,13 +1,15 @@
 import mysql.connector
 
-
-class Database
-  dbc = (host="localhost", user="root", password="", database="iot1")
+class Database():
 
   def __init__(self):
-    db = mysql.connect(*self.dbc)
-    self.cursor = db.cursor()
+    con = mysql.connector.connect(host="localhost", user="pi1", password="abc123", database="iot1")
+    self.cursor = con.cursor()
+    self.con = con
   
+  def getCon(self):
+    return self.con
+
   def query(self, stm):
     self.cursor.execute(stm)
     return self.cursor.fechone()
