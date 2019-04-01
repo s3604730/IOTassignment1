@@ -1,4 +1,5 @@
 import csv
+import datetime
 from classList.Database import Database
 
 with open("report.csv", "w", newline="") as csvfile:
@@ -15,7 +16,17 @@ with open("report.csv", "w", newline="") as csvfile:
 
     if(x[1] > 0):
       status = "BAD"
-      temp = ": " + 
-    writer.writerow(["09/03/2019", "OK"])
-    writer.writerow(["10/03/2019", "BAD: 5 *C below minimum temperature"])
-    writer.writerow(["11/03/2019", "BAD: 10% above maximum humidity"])
+      temp = ": " + str(x[1]) + " *C above maximum temperature"
+    elif(x[1] < 0):
+      status = "BAD"
+      temp = ": " + str(x[1]) + "*C below minimum temperature"
+    
+    if(x[2] > 0):
+      status = "BAD"
+      humidity = ": " + str(x[2]) + "'%' above maximum humidity"
+    elif(x[2] < 0):
+      status = "BAD"
+      humidity = ": " + str(x[2]) + "'%' below minimum humidity"
+
+    date = x[3].strftime('%d/%m/%Y')
+    writer.writerow([date, status + temp + humidity])

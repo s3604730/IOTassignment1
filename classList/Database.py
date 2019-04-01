@@ -19,12 +19,19 @@ class Database():
 
     self.con.commit()
     
+  def insertFirstDateData(self):
+    stm = ("INSERT INTO recordsByDate(temperatureExcess, humidityExcess, date, pushed) VALUES (%s, %s, %s, %s)")
+    val = (0, 0, datetime.now().strftime('%Y-%m-%d'), False) 
+
+    self.cursor.execute(stm, val)
+
+    self.con.commit()
 
   def insertDateData(self, tem, hum):
     with open("config.json", "r") as file1:
       data = json.load(file1)
     
-    stm = ("INSERT INTO recordsByDate(temperatureExcess, humidityExcess, date) VALUES (%s, %s, %s)")
+    stm = ("UPDATE recordsByDate SET temperatureExcess = %s, humidityExcess = %s, pushed = TRUE WHERE DATE(date) = CURDATE()")
 
     maxTem = data["max_temperature"]
     minTem = data["min_temperature"]
@@ -46,7 +53,7 @@ class Database():
     if(hum < minHum):
       humExcess = hum - minHum
     
-    val = (temExcess, humExcess, datetime.now().strftime('%Y-%m-%d')) 
+    val = (temExcess, humExcess) 
 
     self.cursor.execute(stm, val)
 
@@ -76,9 +83,23 @@ class Database():
     return res
     
 
-  def isTodayPushed(self):
+  def isTodayRecorded(self):
     self.cursor.execute("SELECT * FROM recordsByDate WHERE DATE(date) = CURDATE()")
 
     res = self.cursor.fetchall()
 
     return len(res) > 0
+  
+  def isTodayPushed(self):
+    self.cursor.execute("SELECT * FROM recordsByDate WHERE DATE(date) = CURDATE()")
+
+    res = self.cursor.fetchall()
+
+    if(len(res) == 0):
+      return False
+    else:
+      for x in res:
+        if(x[4] == False):
+          return False
+      return True
+  

@@ -39,9 +39,13 @@ db = Database()
 
 # #call db methods
 db.insertMinData(sensorTemperatureValue, sensorHumidityValue)
+if(db.isTodayRecorded() == False):
+  print('today recorded')
+  db.insertFirstDateData()
 
-if((sensorHumidityObject.isOutOfRange() or sensorTemperatureObject.isOutOfRange()) and db.isTodayPushed()):
+if((sensorHumidityObject.isOutOfRange() or sensorTemperatureObject.isOutOfRange()) and db.isTodayPushed() == False):
   db.insertDateData(sensorTemperatureValue, sensorHumidityValue)
+  print('update date')
   #push notifications here
 
 
