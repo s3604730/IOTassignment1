@@ -1,10 +1,10 @@
-from classList.classSensor import ClassSensor
+from classList.Sensor import Sensor
 from classList.virtual_sense_hat import VirtualSenseHat
 import time
 import json
 
 #using the reference form abstract class ClassSensor
-class ClassTemperature2(ClassSensor):
+class Temperature2(ClassSensor):
     def __init__(self):
         pass
         #abstract method in classSensor

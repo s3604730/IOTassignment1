@@ -6,9 +6,9 @@ from datetime import datetime
 # from classList.classHumidity import ClassHumidity
 
 # the objects with parent abstract class
-from classList.classTemperature2 import ClassTemperature2
-from classList.classHumidity2 import ClassHumidity2
-from classList.classDatabase import Database 
+from classList.Temperature2 import Temperature2
+from classList.Humidity2 import Humidity2
+from classList.Database import Database 
 
 #import requests
 #initialise database here
