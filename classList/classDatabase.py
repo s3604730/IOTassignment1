@@ -5,18 +5,6 @@ from datetime import datetime
 class Database():
 
   def __init__(self):
-<<<<<<< HEAD
-    con = mysql.connector.connect(host="localhost", user="pi1", password="abc123", database="iot1")
-    self.cursor = con.cursor()
-    self.con = con
-  
-  def getCon(self):
-    return self.con
-
-  def query(self, stm):
-    self.cursor.execute(stm)
-    return self.cursor.fechone()
-=======
     # con = mysql.connector.connect(host="localhost", user="root", password="", database="iot1")
     con = mysql.connector.connect(host="localhost", user="pi1", password="abc123", database="iot1")
     self.cursor = con.cursor()
@@ -84,6 +72,5 @@ class Database():
     self.cursor.execute("SELECT * FROM recordsByDate WHERE DATE(date) = CURDATE()")
 
     res = self.cursor.fetchall()
->>>>>>> development
 
     return len(res) > 0;
