@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 import json
 import logging
 from datetime import datetime
@@ -7,8 +8,13 @@ from datetime import datetime
 
 # the objects with parent abstract class
 from classList.Temperature2 import Temperature2
+
 from classList.Humidity2 import Humidity2
 from classList.Database import Database 
+
+from utils.pushBulletFile import send_notification_via_pushbullet
+
+
 
 #import requests
 #initialise database here
@@ -45,7 +51,12 @@ if(db.isTodayRecorded() == False):
 
 if((sensorHumidityObject.isOutOfRange() or sensorTemperatureObject.isOutOfRange()) and db.isTodayPushed() == False):
   db.insertDateData(sensorTemperatureValue, sensorHumidityValue)
-  print('update date')
+  
+  if (sensorTemperatureObject.isOutOfRange()):
+    abc = "Temperature value is " + str(sensorTemperatureValue)
+    send_notification_via_pushbullet("ALERT", abc)
+   
+  
   #push notifications here
 
 
