@@ -52,5 +52,3 @@ if((sensorHumidityObject.isOutOfRange() or sensorTemperatureObject.isOutOfRange(
 db.readMinData()
 print("----------------")
 db.readDateData()
-
-# db.getAllDateData()
