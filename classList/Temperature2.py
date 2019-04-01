@@ -1,4 +1,4 @@
-from classList.Sensor import Sensor
+from classList.Sensor import ClassSensor
 from classList.virtual_sense_hat import VirtualSenseHat
 import time
 import json

@@ -5,8 +5,8 @@ from datetime import datetime
 class Database():
 
   def __init__(self):
-    con = mysql.connector.connect(host="localhost", user="root", password="", database="iot1")
-    # con = mysql.connector.connect(host="localhost", user="pi1", password="abc123", database="iot1")
+    # con = mysql.connector.connect(host="localhost", user="root", password="", database="iot1")
+    con = mysql.connector.connect(host="localhost", user="pi1", password="abc123", database="iot1")
     self.cursor = con.cursor()
     self.con = con
 
@@ -15,7 +15,7 @@ class Database():
 
     val = (tem, hum) 
 
-    self.cursor.execute(stm, val);
+    self.cursor.execute(stm, val)
 
     self.con.commit()
     

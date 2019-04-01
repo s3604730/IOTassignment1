@@ -27,11 +27,11 @@ from classList.Database import Database
 
 #get sensor object through abstract class and print value
 #temperature
-sensorTemperatureObject = ClassTemperature2()
+sensorTemperatureObject = Temperature2()
 sensorTemperatureValue = sensorTemperatureObject.value
 
 #get sensor object humidity
-sensorHumidityObject = ClassHumidity2()
+sensorHumidityObject = Humidity2()
 sensorHumidityValue = sensorHumidityObject.value
 
 #initiate db
