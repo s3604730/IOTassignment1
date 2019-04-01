@@ -6,7 +6,7 @@ import json
 class Humidity2(ClassSensor):
     def __init__(self):
         pass
-    #abstract method in classSensor
+        #abstract method in classSensor
     def returnValue(self):
         __sense = VirtualSenseHat.getSenseHat()
         __humidity = __sense.get_humidity()
