@@ -40,11 +40,11 @@ db = Database()
 #call db methods
 db.insertMinData(sensorTemperatureValue, sensorHumidityValue)
 
-if((sensorHumidityObject.isOutOfRange() or sensorTemperatureObject.isOutOfRange()) and db.isTodayPushed() == False):
+if((sensorHumidityObject.isOutOfRange() or sensorTemperatureObject.isOutOfRange()) and db.isTodayPushed()):
   db.insertDateData(sensorTemperatureValue, sensorHumidityValue)
   #push notifications here
 
 
-
-# db.readMinData()
-# db.readDateData()
+db.readMinData()
+print("----------------")
+db.readDateData()
