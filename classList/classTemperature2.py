@@ -1,10 +1,7 @@
 from classList.classSensor import ClassSensor
 from classList.virtual_sense_hat import VirtualSenseHat
-<<<<<<< HEAD
 import time
-=======
 import json
->>>>>>> development
 
 #using the reference form abstract class ClassSensor
 class ClassTemperature2(ClassSensor):

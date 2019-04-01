@@ -5,30 +5,10 @@ from datetime import datetime
 # from classList.classTemperature import ClassTemperature 
 # from classList.classHumidity import ClassHumidity
 
-
-
 # the objects with parent abstract class
 from classList.classTemperature2 import ClassTemperature2
 from classList.classHumidity2 import ClassHumidity2
-<<<<<<< HEAD
-from classList.classDatabase import Database
-
-
-#pushbullet utils file
-from utils.pushBulletFile import send_notification_via_pushbullet
-
-send_notification_via_pushbullet("fsdfdsaf","fdsfasd")
-
-#date time
-from utils.dateTime import getDateTime
-
-
-#Database
-db = Database()
-print(db)
-=======
 from classList.classDatabase import Database 
->>>>>>> development
 
 #import requests
 #initialise database here
@@ -52,12 +32,6 @@ sensorTemperatureValue = sensorTemperatureObject.value
 
 #get sensor object humidity
 sensorHumidityObject = ClassHumidity2()
-<<<<<<< HEAD
-sensorHumidityValue = sensorHumidityObject.returnValue()
-print(sensorHumidityValue)
-
-
-=======
 sensorHumidityValue = sensorHumidityObject.value
 
 #initiate db
@@ -71,13 +45,6 @@ if((sensorHumidityObject.isOutOfRange() or sensorTemperatureObject.isOutOfRange(
   #push notifications here
 
 
-<<<<<<< HEAD
-
-# db.readMinData()
-# db.readDateData()
->>>>>>> development
-=======
 db.readMinData()
 print("----------------")
 db.readDateData()
->>>>>>> development
