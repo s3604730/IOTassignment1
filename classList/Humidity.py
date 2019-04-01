@@ -2,7 +2,7 @@ from classList.virtual_sense_hat import VirtualSenseHat
 
 #think about putting abstract class later on
 
-class ClassHumidity:
+class Humidity:
     def __init__(self):
         pass
 

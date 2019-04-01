@@ -5,8 +5,8 @@ from datetime import datetime
 class Database():
 
   def __init__(self):
-    # con = mysql.connector.connect(host="localhost", user="root", password="", database="iot1")
-    con = mysql.connector.connect(host="localhost", user="pi1", password="abc123", database="iot1")
+    con = mysql.connector.connect(host="localhost", user="root", password="", database="iot1")
+    # con = mysql.connector.connect(host="localhost", user="pi1", password="abc123", database="iot1")
     self.cursor = con.cursor()
     self.con = con
 
@@ -26,13 +26,13 @@ class Database():
     
     stm = ("INSERT INTO recordsByDate(temperatureExcess, humidityExcess, date) VALUES (%s, %s, %s)")
 
-    maxTem = data["max_temperature"];
-    minTem = data["min_temperature"];
-    maxHum = data["max_humidity"];
-    minHum = data["min_humidity"];
+    maxTem = data["max_temperature"]
+    minTem = data["min_temperature"]
+    maxHum = data["max_humidity"]
+    minHum = data["min_humidity"]
     
-    temExcess = 0;
-    humExcess = 0;
+    temExcess = 0
+    humExcess = 0
 
     if(tem > maxTem):
       temExcess = tem - maxTem
@@ -68,6 +68,13 @@ class Database():
     for x in res:
       print(x)
   
+  def getAllDateData(self):
+    self.cursor.execute("SELECT * FROM recordsByDate")
+
+    res = self.cursor.fetchall()
+
+    return res
+
   def isTodayPushed(self):
     self.cursor.execute("SELECT * FROM recordsByDate WHERE DATE(date) = CURDATE()")
 
