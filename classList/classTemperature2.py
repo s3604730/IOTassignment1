@@ -1,6 +1,10 @@
 from classList.classSensor import ClassSensor
 from classList.virtual_sense_hat import VirtualSenseHat
+<<<<<<< HEAD
 import time
+=======
+import json
+>>>>>>> development
 
 #using the reference form abstract class ClassSensor
 class ClassTemperature2(ClassSensor):
@@ -13,3 +17,14 @@ class ClassTemperature2(ClassSensor):
         time.sleep(1)
         __temperature = __sense.get_temperature()
         return __temperature
+    
+    @property
+    def value(self):
+        __sense = VirtualSenseHat.getSenseHat()
+        __temperature = __sense.get_temperature()
+        return __temperature
+
+    def isOutOfRange(self):
+        with open("config.json", "r") as file:
+            data = json.load(file)
+        return self.value < data["min_temperature"] or self.value > data["max_temperature"]

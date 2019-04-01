@@ -3,7 +3,4 @@ class Main:
     def main():
         pass
     
-
-
-
 Main.main()
