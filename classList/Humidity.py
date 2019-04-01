@@ -11,4 +11,6 @@ class Humidity:
     def returnCurrentHumidity(self):
         __sense = VirtualSenseHat.getSenseHat()
         __humidity = __sense.get_humidity()
+        print(__humidity)
+        print("Fdsfsadfsadf")
         return __humidity

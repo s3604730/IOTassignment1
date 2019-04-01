@@ -48,7 +48,7 @@ class Database():
     
     val = (temExcess, humExcess, datetime.now().strftime('%Y-%m-%d')) 
 
-    self.cursor.execute(stm, val);
+    self.cursor.execute(stm, val)
 
     self.con.commit()
 
@@ -81,4 +81,4 @@ class Database():
 
     res = self.cursor.fetchall()
 
-    return len(res) > 0;
+    return len(res) > 0
