@@ -19,5 +19,5 @@ def send_notification_via_pushbullet(title, body):
         raise Exception()
 
     print("Notification sent.")
-ip_address = os.popen("hostname -I").read()
-send_notification_via_pushbullet(ip_address, "From Raspberry Pi")
+#ip_address = os.popen("hostname -I").read()
+#send_notification_via_pushbullet(ip_address, "From Raspberry Pi")
