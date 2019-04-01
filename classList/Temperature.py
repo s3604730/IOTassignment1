@@ -3,7 +3,7 @@ from classList.virtual_sense_hat import VirtualSenseHat
 
 #Think about Abstract class then we can
 #put parameter of abstract class in this class
-class ClassTemperature:
+class Temperature:
     def __init__(self):
         pass
          

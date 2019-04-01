@@ -1,9 +1,9 @@
-from classList.Sensor import Sensor
+from classList.Sensor import ClassSensor
 from classList.virtual_sense_hat import VirtualSenseHat
 import json
 
 #using the reference from abstract class ClassSensor
-class ClassHumidity2(ClassSensor):
+class Humidity2(ClassSensor):
     def __init__(self):
         pass
     #abstract method in classSensor
