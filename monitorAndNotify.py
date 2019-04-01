@@ -28,16 +28,16 @@ from classList.Database import Database
 #get sensor object through abstract class and print value
 #temperature
 sensorTemperatureObject = Temperature2()
-sensorTemperatureValue = sensorTemperatureObject.value
+sensorTemperatureValue = sensorTemperatureObject.returnValue()
 
-#get sensor object humidity
+# #get sensor object humidity
 sensorHumidityObject = Humidity2()
-sensorHumidityValue = sensorHumidityObject.value
+sensorHumidityValue = sensorHumidityObject.returnValue()
 
-#initiate db
+# #initiate db
 db = Database()
 
-#call db methods
+# #call db methods
 db.insertMinData(sensorTemperatureValue, sensorHumidityValue)
 
 if((sensorHumidityObject.isOutOfRange() or sensorTemperatureObject.isOutOfRange()) and db.isTodayPushed()):
@@ -48,3 +48,5 @@ if((sensorHumidityObject.isOutOfRange() or sensorTemperatureObject.isOutOfRange(
 db.readMinData()
 print("----------------")
 db.readDateData()
+
+# db.getAllDateData()

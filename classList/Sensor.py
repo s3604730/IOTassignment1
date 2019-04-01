@@ -7,6 +7,7 @@ class ClassSensor(ABC):
         pass
     #abstract method that both the temperature and humidity classes 
     #will use
+    @property
     @abstractmethod
     def returnValue(self):
         pass

@@ -12,13 +12,7 @@ class Temperature2(ClassSensor):
         __temperature = __sense.get_temperature()
         return __temperature
     
-    @property
-    def value(self):
-        __sense = VirtualSenseHat.getSenseHat()
-        __temperature = __sense.get_temperature()
-        return __temperature
-
     def isOutOfRange(self):
         with open("config.json", "r") as file:
             data = json.load(file)
-        return self.value < data["min_temperature"] or self.value > data["max_temperature"]
+        return self.returnValue() < data["min_temperature"] or self.returnValue() > data["max_temperature"]

@@ -74,6 +74,7 @@ class Database():
     res = self.cursor.fetchall()
 
     return res
+    
 
   def isTodayPushed(self):
     self.cursor.execute("SELECT * FROM recordsByDate WHERE DATE(date) = CURDATE()")
