@@ -5,3 +5,5 @@ def returnTime():
     result = currentUtcTime + timedelta(hours=11)
     
     return result
+
+print(returnTime())
