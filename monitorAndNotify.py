@@ -13,7 +13,7 @@ from classList.Humidity2 import Humidity2
 from classList.Database import Database 
 
 from utils.pushBulletFile import send_notification_via_pushbullet
-
+import time
 
 
 #import requests
@@ -34,6 +34,7 @@ from utils.pushBulletFile import send_notification_via_pushbullet
 #get sensor object through abstract class and print value
 #temperature
 sensorTemperatureObject = Temperature2()
+time.sleep(2)
 sensorTemperatureValue = sensorTemperatureObject.returnValue()
 
 # #get sensor object humidity
