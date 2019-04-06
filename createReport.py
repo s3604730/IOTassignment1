@@ -2,7 +2,11 @@ import csv
 import datetime
 from classList.Database import Database
 
-with open("report.csv", "w", newline="") as csvfile:
+reportName = input('Enter file name: ')
+
+reportFile = reportName + '.csv'
+
+with open(reportFile, "w", newline="") as csvfile:
   db = Database()
   res = db.getAllDateData()
 
