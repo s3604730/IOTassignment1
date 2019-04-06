@@ -14,7 +14,7 @@ class Temperature2(ClassSensor):
     def returnValue(self):
         #base temp
         __sense = VirtualSenseHat.getSenseHat()
-        time.sleep(1)
+        time.sleep(3)
         __temperature = __sense.get_temperature()
 
 
