@@ -55,13 +55,13 @@ if((sensorHumidityObject.isOutOfRange() or sensorTemperatureObject.isOutOfRange(
   db.insertDateData(sensorTemperatureValue, sensorHumidityValue)
   
   #if temperature is out of range
-  if (sensorTemperatureObject.isOutOfRange()):
-    abc = "Temperature value is " + str(sensorTemperatureValue)
+  if (sensorTemperatureObject.isOutOfRange()):  
+    abc = "Temperature value is " + str(round(sensorTemperatureValue), 1)
     send_notification_via_pushbullet("ALERT", abc)
 
     #else if humidity is out of range
   elif(sensorHumidityObject.isOutOfRange()):
-    abc = "Humidity value is " + str(sensorHumidityValue)
+    abc = "Humidity value is " + str(round(sensorHumidityValue), 1)
     send_notification_via_pushbullet("ALERT", abc)
    
   
