@@ -12,7 +12,7 @@ def send_notification_via_pushbullet(title, body):
             body (str) : Body of text.
     """
     data = { "type": "note", "title": title, "body": body }
-
+    #sends notification to both clients
     response = requests.post("https://api.pushbullet.com/v2/pushes", data = json.dumps(data),
         headers = { "Authorization": "Bearer " + ACCESS_TOKEN, "Content-Type": "application/json" })
     response = requests.post("https://api.pushbullet.com/v2/pushes", data = json.dumps(data),

@@ -31,10 +31,6 @@ with open("analytics.csv", "w", newline="") as csvfile:
   writer.writerow([temp,humid,time])
 
 
-#execute method for humidity graph with seaborn 
-
-humidityGraph = SeaBornHumidity()
-humidityGraph.outputHumidity()
 
 #execute method for temp graph with matplotlib
 temperatureGraph = MatPlotLibTemperature()
@@ -42,6 +38,10 @@ temperatureGraph.outputTemp()
 
 
 
+#execute method for humidity graph with seaborn 
+
+humidityGraph = SeaBornHumidity()
+humidityGraph.outputHumidity()
 
 
 
