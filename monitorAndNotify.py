@@ -33,8 +33,12 @@ import time
 
 #get sensor object through abstract class and print value
 #temperature
+
+
+
+
 sensorTemperatureObject = Temperature2()
-time.sleep(2)
+
 sensorTemperatureValue = sensorTemperatureObject.returnValue()
 
 # #get sensor object humidity

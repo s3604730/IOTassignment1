@@ -10,7 +10,7 @@ class Humidity2(ClassSensor):
         #abstract method in classSensor
     def returnValue(self):
         __sense = VirtualSenseHat.getSenseHat()
-        time.sleep(2)
+      
         __humidity = __sense.get_humidity()
         
         return __humidity

@@ -14,7 +14,7 @@ class Temperature2(ClassSensor):
     def returnValue(self):
         #base temp
         __sense = VirtualSenseHat.getSenseHat()
-        time.sleep(3)
+        
         __temperature = __sense.get_temperature()
 
 
@@ -22,10 +22,17 @@ class Temperature2(ClassSensor):
         #correction temp
         __humidTemp = __sense.get_temperature_from_humidity()
         __pressureTemp = __sense.get_temperature_from_pressure()
+        
+        __pressureTemp = __sense.get_temperature_from_pressure()
+        
+        __pressureTemp = __sense.get_temperature_from_pressure()
+        
+        __pressureTemp = __sense.get_temperature_from_pressure()
+        
         __tempCpu = getCpuTemperature()
         __humid = __sense.get_humidity()
         __pres = __sense.get_pressure()
-
+       
         #calculating temp with knowledge of 
         #cpu temp
 
