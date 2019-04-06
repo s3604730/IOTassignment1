@@ -23,15 +23,11 @@ class Temperature2(ClassSensor):
         __humidTemp = __sense.get_temperature_from_humidity()
         __pressureTemp = __sense.get_temperature_from_pressure()
         
-        __pressureTemp = __sense.get_temperature_from_pressure()
-        
-        __pressureTemp = __sense.get_temperature_from_pressure()
-        
-        __pressureTemp = __sense.get_temperature_from_pressure()
-        
+
         __tempCpu = getCpuTemperature()
         __humid = __sense.get_humidity()
         __pres = __sense.get_pressure()
+       
        
         #calculating temp with knowledge of 
         #cpu temp
