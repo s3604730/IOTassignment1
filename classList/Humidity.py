@@ -1,16 +1,21 @@
+from classList.Sensor import ClassSensor
 from classList.virtual_sense_hat import VirtualSenseHat
+import time
+import json
 
-#think about putting abstract class later on
-
-class Humidity:
+#using the reference from abstract class ClassSensor
+class Humidity(ClassSensor):
     def __init__(self):
         pass
-
-    #abstract class of returnValue 
-    #similar to temperature???
-    def returnCurrentHumidity(self):
+        #abstract method in classSensor
+    def returnValue(self):
         __sense = VirtualSenseHat.getSenseHat()
+        time.sleep(2)
         __humidity = __sense.get_humidity()
-        print(__humidity)
-        print("Fdsfsadfsadf")
+        
         return __humidity
+    
+    def isOutOfRange(self):
+        with open("config.json", "r") as file:
+            data = json.load(file)
+        return self.returnValue() < data["min_humidity"] or self.returnValue() > data["max_humidity"]

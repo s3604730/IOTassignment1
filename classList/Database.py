@@ -5,11 +5,12 @@ from datetime import datetime
 class Database():
 
   def __init__(self):
-    # con = mysql.connector.connect(host="localhost", user="root", password="", database="iot1")
+    # mysql config of Pi
     con = mysql.connector.connect(host="localhost", user="pi1", password="abc123", database="iot1")
     self.cursor = con.cursor()
     self.con = con
 
+  # insert minute data method
   def insertMinData(self, tem, hum):
     stm = ("INSERT INTO recordsByMin(temperature, humidity) VALUES (%s, %s)")
 
@@ -18,7 +19,8 @@ class Database():
     self.cursor.execute(stm, val)
 
     self.con.commit()
-    
+
+  # insert the first data for date to determine if temperature and humidity is in range the whole day or just the Pi is not used  
   def insertFirstDateData(self):
     stm = ("INSERT INTO recordsByDate(temperatureExcess, humidityExcess, date, pushed) VALUES (%s, %s, %s, %s)")
     val = (0, 0, datetime.now().strftime('%Y-%m-%d'), False) 
@@ -27,6 +29,7 @@ class Database():
 
     self.con.commit()
 
+  # insert data for date if temperature and humidity is out of range (only once per day)
   def insertDateData(self, tem, hum):
     with open("config.json", "r") as file1:
       data = json.load(file1)
@@ -37,7 +40,7 @@ class Database():
     minTem = data["min_temperature"]
     maxHum = data["max_humidity"]
     minHum = data["min_humidity"]
-    
+    # calculate temperature and humidity excesses
     temExcess = 0
     humExcess = 0
 
@@ -59,6 +62,7 @@ class Database():
 
     self.con.commit()
 
+  # log data from recordsByMin table
   def readMinData(self):    
     self.cursor.execute("SELECT * FROM recordsByMin")
 
@@ -67,6 +71,7 @@ class Database():
     for x in res:
       print(x)
 
+  # log data from recordsByDate table
   def readDateData(self):
     self.cursor.execute("SELECT * FROM recordsByDate")
 
@@ -75,6 +80,7 @@ class Database():
     for x in res:
       print(x)
   
+  # get all data from recordsByDate table
   def getAllDateData(self):
     self.cursor.execute("SELECT * FROM recordsByDate")
 
@@ -82,6 +88,7 @@ class Database():
 
     return res
 
+  # get all data from recordsByMin table
   def getAllMinData(self):
     self.cursor.execute("SELECT * FROM recordsByMin")
 
@@ -89,7 +96,8 @@ class Database():
 
     return res
     
-
+  # this method is used to determine if the Pi is booted during the day or not
+  # also used to write the first data for date table
   def isTodayRecorded(self):
     self.cursor.execute("SELECT * FROM recordsByDate WHERE DATE(date) = CURDATE()")
 
@@ -97,6 +105,8 @@ class Database():
 
     return len(res) > 0
   
+  # this method is used to determine if temperature or humidity value is out of range during the day or not.
+  # also used to determine if notification has been sent today or not.
   def isTodayPushed(self):
     self.cursor.execute("SELECT * FROM recordsByDate WHERE DATE(date) = CURDATE()")
 
