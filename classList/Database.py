@@ -81,6 +81,13 @@ class Database():
     res = self.cursor.fetchall()
 
     return res
+
+  def getAllMinData(self):
+    self.cursor.execute("SELECT * FROM recordsByMin")
+
+    res = self.cursor.fetchall()
+
+    return res
     
 
   def isTodayRecorded(self):
