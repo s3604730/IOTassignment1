@@ -8,6 +8,8 @@ from classList.Humidity import Humidity
 from classList.Database import Database 
 from utils.pushBulletFile import send_notification_via_pushbullet
 import time
+import os
+os.chdir(r'/home/pi/Assignment1/')
 
 #get temperature
 sensorTemperatureObject = Temperature()
