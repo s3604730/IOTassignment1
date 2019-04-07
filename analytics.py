@@ -1,3 +1,5 @@
+import matplotlib
+matplotlib.use('Agg')
 import mysql.connector
 import sys
 from classList.seabornHumidity import SeaBornHumidity
@@ -8,8 +10,7 @@ import pandas as pd
 from classList.Database import Database
 import datetime
 import csv
-import matplotlib
-matplotlib.use('Agg')
+
 
 
 # open a csv file
