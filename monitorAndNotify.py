@@ -11,6 +11,7 @@ import time
 import os
 os.chdir(r'/home/pi/Assignment1/')
 
+
 # get temperature
 sensorTemperatureObject = Temperature()
 sensorTemperatureValue = sensorTemperatureObject.returnValue()

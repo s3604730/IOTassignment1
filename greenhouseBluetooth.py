@@ -4,7 +4,6 @@ import time
 from sense_hat import SenseHat
 from classList.Humidity import Humidity
 from classList.Temperature import Temperature
-from utils.pushBulletFile import send_notification_via_pushbullet
 from utils.bluetoothPush import bluetoothPush
 import os
 os.chdir(r'/home/pi/Assignment1/')
@@ -73,6 +72,7 @@ class greenhouseBluetooth():
 
     abc = tempContent + " " + humContent
     push.send_notification_via_pushbullet("ALERT", abc)
+    time.sleep(60)
    else:
     print("Could not find target device nearby...")
 
