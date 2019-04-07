@@ -27,4 +27,12 @@ It makes creating and depicting graphs easier than matplotlib without
 as many restrictions such as the data values used for plotting graphs.
 Seaborn adds a generous coverage over matplotlib in this regard. 
 
+Some errors occured while generating the graphs however. We 
+encountered trouble on having a new instance of a graph. 
+What I mean by this is that we would create the first graph as 
+the temperature box plot graph. When we then proceeded to make 
+the seaborn graph afterwards, it would still have the remnant
+of the box plot graph   in the new graph and the visualisation
+error is there. After much researching, we haven't found a way 
+to remove that error.
 

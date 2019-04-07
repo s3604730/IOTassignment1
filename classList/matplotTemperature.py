@@ -22,7 +22,6 @@ class MatPlotLibTemperature():
         df = pd.read_csv("analytics.csv")
         # plot boxplot for temperature
         df['temperature'].plot(kind='box')
-        plt.xlabel('Temperature')
         # export image of grpah into file name
         # temperatureBox.png
         plt.savefig('temperatureBox.png')
