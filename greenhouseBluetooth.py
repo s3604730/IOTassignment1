@@ -7,7 +7,10 @@ from classList.Humidity import Humidity
 from classList.Temperature import Temperature
 from utils.bluetoothPush import bluetoothPush
 import os
-os.chdir(r'/home/pi/Assignment1/')
+#get relative path
+path = os.path.abspath(os.path.dirname(__file__))
+os.chdir(path)
+
 
 # class bluetooth
 

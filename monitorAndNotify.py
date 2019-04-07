@@ -9,7 +9,10 @@ from classList.Database import Database
 from utils.pushBulletFile import pushBulletFile
 import time
 import os
-os.chdir(r'/home/pi/Assignment1/')
+
+#get relative path
+path = os.path.abspath(os.path.dirname(__file__))
+os.chdir(path)
 
 
 # get temperature
