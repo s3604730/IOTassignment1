@@ -1,0 +1,30 @@
+We used the data set of both Temperature and Humidity. Both temperature and
+Humidity are numerical values or quantitative data, therefore the data 
+visualisation that was chosen to represent each of these data values was
+a Box plot and a Bar Chart.
+
+The box plot would indicate the median and 
+the 25th and 75th quartiles of where a majority of the data are between.
+It will also effectively indicate outliers which indicate there may
+be a problem. 
+
+The Bar Chart was used to indicate the frequency of the Humidity values.
+We can see that a majority of values are represented in a stable
+value of around 26 but would sometimes be a very low or very high
+value which is represented as an outlier. 
+
+The data visualisation libraries we used from Python were
+Matplotlib and Seaborn. The reason in picking matplotlib was because
+it is very versatile in reading the data from a csv. If there was
+no values, it would indicate them as nan and move on. In  this project,
+this wasn't a concern but in other areas, it is a very handy perk 
+of using matplotlib. Displaying graphs with matplotlib is also very
+powerful in what you can represent. Seaborn was the second data visualisation
+tool that we picked. Seaborn on the other hand has good visualisation tools
+that comes with it. Seaborn can be thought of as an extension to Matplotlib
+which is what makes it powerful in data visulisation with the library.
+It makes creating and depicting graphs easier than matplotlib without
+as many restrictions such as the data values used for plotting graphs.
+Seaborn adds a generous coverage over matplotlib in this regard. 
+
+
