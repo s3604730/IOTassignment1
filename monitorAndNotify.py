@@ -53,7 +53,3 @@ if((sensorHumidityObject.isOutOfRange() or sensorTemperatureObject.isOutOfRange(
         abc = "Humidity value is " + str(round(sensorHumidityValue, 1))
         pushFile.send_notification_via_pushbullet("ALERT", abc)
 
-# log data for testing, will remove for final submission
-db.readMinData()
-print("----------------")
-db.readDateData()
