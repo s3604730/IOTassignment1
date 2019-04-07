@@ -1,0 +1,35 @@
+
+
+
+
+1.
+mkdir /home/pi/CronJobs
+nano /home/pi/CronJobs/RunACronTask.sh
+
+2.
+#!/bin/sh
+python3 /home/pi/Assignment1/monitorAndNotify.py
+
+3. 
+chmod +x /home/pi/CronJobs/RunACronTask.sh
+
+4. sudo nano /etc/cron.d/MyFirstCronJob
+
+5. * * * * * pi /home/pi/CronJobs/RunACronTask.sh
+
+
+6. sudo nano /home/pi/CronJobs/RunBluetooth.sh
+
+7.
+#!/bin/sh
+python3 /home/pi/Assignment1/greenhouseBluetooth.py
+
+8.chmod +x /home/pi/CronJobs/RunBluetooth.sh
+
+9.
+sudo nano /etc/cron.d/MyBluetoothCron
+
+10.
+* * * * * /home/pi/CronJobs/RunACronTask.sh
+
+
