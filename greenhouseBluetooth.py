@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 import bluetooth
 import os
 import time
@@ -24,7 +25,7 @@ class greenhouseBluetooth():
 
  def scan(self):
   print("Scanning...")
-  self.findNearbyDevices();
+  self.findNearbyDevices()
 
   print("Sleeping for 10 seconds.")
   time.sleep(10)
@@ -72,10 +73,11 @@ class greenhouseBluetooth():
 
     abc = tempContent + " " + humContent
     push.send_notification_via_pushbullet("ALERT", abc)
-   
-    #sleep for a minute to stop spamming
-    time.sleep(60)
+    #exit program
+    break
    else:
     print("Could not find target device nearby...")
+    #exit program
+    break
 
 greenhouseBluetooth()
