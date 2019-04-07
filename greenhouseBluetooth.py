@@ -72,6 +72,8 @@ class greenhouseBluetooth():
 
     abc = tempContent + " " + humContent
     push.send_notification_via_pushbullet("ALERT", abc)
+   
+    #sleep for a minute to stop spamming
     time.sleep(60)
    else:
     print("Could not find target device nearby...")
