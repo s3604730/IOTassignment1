@@ -3,12 +3,37 @@ import json
 from datetime import datetime
 
 class Database():
-
   def __init__(self):
+    # populate database and tables if they don't exist
+    self.createDatabase()
+    self.createTable1()
+    self.createTable2()
+
     # mysql config of Pi
     con = mysql.connector.connect(host="localhost", user="pi1", password="abc123", database="iot1")
     self.cursor = con.cursor()
     self.con = con
+  
+  # createDatabase
+  def createDatabase(self):
+    con = mysql.connector.connect(host="localhost", user="pi1", password="abc123")
+    stm = "CREATE DATABASE IF NOT EXISTS iot1"
+    con.cursor().execute(stm)
+    con.commit()
+  
+  # create table recordsByMin
+  def createTable1(self):
+    con = mysql.connector.connect(host="localhost", user="pi1", password="abc123", database="iot1")
+    stm = "CREATE TABLE IF NOT EXISTS recordsByMin (id INT AUTO_INCREMENT PRIMARY KEY, temperature INT, humidity INT, createdTime TIMESTAMP)"
+    con.cursor().execute(stm)
+    con.commit()
+  
+  # create table recordsByDate
+  def createTable2(self):
+    con = mysql.connector.connect(host="localhost", user="pi1", password="abc123", database="iot1")
+    stm = "CREATE TABLE IF NOT EXISTS recordsByDate (id INT AUTO_INCREMENT PRIMARY KEY, temperatureExcess INT, humidityExcess INT, date Datetime, pushed BOOLEAN)"
+    con.cursor().execute(stm)
+    con.commit()
 
   # insert minute data method
   def insertMinData(self, tem, hum):
@@ -119,4 +144,3 @@ class Database():
         if(x[4] == False):
           return False
       return True
-  
