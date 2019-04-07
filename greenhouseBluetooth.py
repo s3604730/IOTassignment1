@@ -56,8 +56,7 @@ class greenhouseBluetooth():
     humContent = "Current humidity is " + str(round(hum.returnValue()))
 
     pushContent = tempContent + ' ' + humContent
-    # pushbullet here
-    push.send_notification_via_pushbullet("ALERT", pushContent)
+    
 
 
 
@@ -71,7 +70,7 @@ class greenhouseBluetooth():
     else:
      humContent += ", which is in range."
 
-    abc = tempContent + " " + humContent
+    abc = tempContent + " " + humContent + " \n"+ pushContent
     push.send_notification_via_pushbullet("ALERT", abc)
     #exit program
     break
