@@ -6,10 +6,10 @@ import os
 class pushBulletFile():
     def __init__(self):
         pass
-    
+
     # initialising pushbullet API
-    def send_notification_via_pushbullet(self,title, body):
-        #access tokens
+    def send_notification_via_pushbullet(self, title, body):
+        # access tokens
         ACCESS_TOKEN = "o.M13sYREYvbBuRz5xUh0A86lrpclTFCuc"
         ACCESS_TOKEN_HARRY = "o.QcWpSbXN5EGj8Jxi1T7mDN0dq6Bz7h3P"
 
@@ -24,4 +24,3 @@ class pushBulletFile():
             raise Exception()
 
         print("Notification sent.")
- 

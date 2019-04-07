@@ -36,7 +36,6 @@ if(db.isTodayRecorded() == False):
 # push notification yet
 if((sensorHumidityObject.isOutOfRange() or sensorTemperatureObject.isOutOfRange()) and db.isTodayPushed() == False):
     db.insertDateData(sensorTemperatureValue, sensorHumidityValue)
-    
 
     # Initialise pushbullet
     pushFile = pushBulletFile()
@@ -45,7 +44,6 @@ if((sensorHumidityObject.isOutOfRange() or sensorTemperatureObject.isOutOfRange(
     if (sensorTemperatureObject.isOutOfRange()):
         abc = "Temperature value is " + str(round(sensorTemperatureValue, 1))
         pushFile.send_notification_via_pushbullet("ALERT", abc)
-        
 
         # else if humidity is out of range
     elif(sensorHumidityObject.isOutOfRange()):

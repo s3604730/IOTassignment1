@@ -8,13 +8,14 @@ try:
 except ImportError:
     pass
 
+
 class VirtualSenseHat:
     @staticmethod
-    def getSenseHat(logError = True):
+    def getSenseHat(logError=True):
         try:
             return SenseHat()
         except Exception as e:
             if(logError):
-                logging.error("Falling back to VirtualSenseHat because: " + str(e))
+                logging.error(
+                    "Falling back to VirtualSenseHat because: " + str(e))
             return VirtualSenseHat()
-
