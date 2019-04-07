@@ -2,9 +2,12 @@ import bluetooth
 import os
 import time
 from sense_hat import SenseHat
-from classList.Humidity2 import Humidity2
-from classList.Temperature2 import Temperature2
+from classList.Humidity import Humidity
+from classList.Temperature import Temperature
 from utils.pushBulletFile import send_notification_via_pushbullet
+from utils.bluetoothPush import bluetoothPush
+import os
+os.chdir(r'/home/pi/Assignment1/')
 
 class greenhouseBluetooth():
  def __init__(self):
@@ -44,12 +47,19 @@ class greenhouseBluetooth():
     print("Hi {}! Your phone ({}) has the MAC address: {}".format(user_name, device_name, device_address))
     sense = SenseHat()
 
-    temp = Temperature2();
-    hum = Humidity2();
+    temp = Temperature()
+    hum = Humidity()
+    push = bluetoothPush()
     sense.show_message("Hi {}! Current Temp is {}*c".format(user_name, temp), scroll_speed = 0.05)
+    
+    tempContent = "Current temperature is " + str(round(temp.returnValue()))
+    humContent = "Current humidity is " + str(round(hum.returnValue()))
+
+    pushContent = tempContent + ' ' + humContent
     # pushbullet here
-    tempContent = "Current temperature is " + str(temp.returnValue())
-    humContent = "Current humidity is " + str(hum.returnValue())
+    push.send_notification_via_pushbullet("ALERT", pushContent)
+
+
 
     if(temp.isOutOfRange()):
      tempContent += ", which is out of range."
@@ -62,7 +72,7 @@ class greenhouseBluetooth():
      humContent += ", which is in range."
 
     abc = tempContent + " " + humContent
-    send_notification_via_pushbullet("ALERT", abc)
+    push.send_notification_via_pushbullet("ALERT", abc)
    else:
     print("Could not find target device nearby...")
 

@@ -18,11 +18,3 @@ class VirtualSenseHat:
                 logging.error("Falling back to VirtualSenseHat because: " + str(e))
             return VirtualSenseHat()
 
-
-
-    def show_message(self, text_string,
-        scroll_speed = 0.1, text_colour = [255, 255, 255], back_colour = [0, 0, 0]):
-        print(text_string)
-
-    def clear(self):
-        pass
